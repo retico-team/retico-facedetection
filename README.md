@@ -6,12 +6,12 @@
 
 ### How do I get set up? ###
 
-*Object Detection (YOLOv4)
-Clone the https://github.com/yuto3o/yolox repo and set
+Ensure that Object Detection (YOLOv4) is set up
+*Clone the https://github.com/yuto3o/yolox repo and set
 
-os.environ['YOLO'] = '/path/to/yolo'
+*os.environ['YOLO'] = '/path/to/yolo'
 
-You will need to download the cfg, weights, and pre-trained weights from https://github.com/AlexeyAB/darknet/releases
+*You will need to download the cfg, weights, and pre-trained weights from https://github.com/AlexeyAB/darknet/releases
 
 ### Who do I talk to? ###
 
