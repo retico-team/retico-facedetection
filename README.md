@@ -1,27 +1,17 @@
-# README #
-
-This README would normally document whatever steps are necessary to get your application up and running.
+# Face-Detection #
 
 ### What is this repository for? ###
 
-* Quick summary
-* Version
-* [Learn Markdown](https://bitbucket.org/tutorials/markdowndemo)
+* Face detection is a retcio module that uses YoloV8 to detect faces from a camera feed and display a bounding box around a person's face when detected.
 
 ### How do I get set up? ###
 
-* Summary of set up
-* Configuration
-* Dependencies
-* Database configuration
-* How to run tests
-* Deployment instructions
+*Object Detection (YOLOv4)
+Clone the https://github.com/yuto3o/yolox repo and set
 
-### Contribution guidelines ###
+os.environ['YOLO'] = '/path/to/yolo'
 
-* Writing tests
-* Code review
-* Other guidelines
+You will need to download the cfg, weights, and pre-trained weights from https://github.com/AlexeyAB/darknet/releases
 
 ### Who do I talk to? ###
 
