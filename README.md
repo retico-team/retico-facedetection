@@ -1,19 +1,13 @@
 # Face-Detection #
 
-### What is this repository for? ###
 
-* Face detection is a retcio module that uses YoloV8 to detect faces from a camera feed and display a bounding box around a person's face when detected.
+A ReTiCo module for Face detection. This module uses YoloV8 to detect faces from a camera feed and display a bounding box around a person's face when detected.
 
-### How do I get set up? ###
+### Installation and requirements ###
+*Clone retico repository : `git clone http+git@github.com:retico-team/retico.git`
+*intsall cv2 which is OpenCV: `pip istall cv2`
 
-Ensure that Object Detection (YOLOv4) is set up
-*Clone the https://github.com/yuto3o/yolox repo and set
+### Example ###
 
-*os.environ['YOLO'] = '/path/to/yolo'
 
-*You will need to download the cfg, weights, and pre-trained weights from https://github.com/AlexeyAB/darknet/releases
-
-### Who do I talk to? ###
-
-* Repo owner or admin
-* Other community or team contact
+## Citation ##
