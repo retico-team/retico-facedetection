@@ -3,11 +3,15 @@ import sys
 import numpy as np
 
 #retico
-from retico.core import abstract
-from retico.core.visual.common import ImageIU
-from retico.core.dialogue.common import GenericDictIU
+import retico_core
+from retico_core import abstract
+from retico_vision.vision import ImageIU
+from retico_core.dialogue import GenericDictIU
+# from retico.core import abstract
+# from retico.core.visual.common import ImageIU
+# from retico.core.dialogue.common import GenericDictIU
 
-class FaceDetectionModule(abstract.AbstractModule):
+class FaceDetectionModule(retico_core.AbstractModule):
     """A face detection module using OpenCV"""
 
     @staticmethod
@@ -29,14 +33,20 @@ class FaceDetectionModule(abstract.AbstractModule):
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
         self.faceCascade = None
+
+    def process_update(self, update_message):
+        for iu,um in update_message:
+            if um == abstract.UpdateType.ADD:
+                self.process_iu(iu)
+            else:
+                continue
     
     def process_iu(self, input_iu):
-        
         # Get user supplied values
         image = np.asarray(input_iu.image)
 
         # Read the image
-        # image = cv2.imread(imagePath)
+        #image = cv2.imread(imagePath)
         gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
 
         # Detect faces in the image
@@ -55,10 +65,11 @@ class FaceDetectionModule(abstract.AbstractModule):
         for (x, y, w, h) in faces:
             cv2.rectangle(image, (x, y), (x+w, y+h), (250, 0, 180), 2)
 
-            #cv2.imshow("Faces found", image)
-            #cv2.waitKey(0)
             returning_dictionary[face_count] = [(x,y), (x+w, y+h)]
             face_count += 1
+
+            cv2.imshow("Faces found", image)
+            cv2.waitKey(1) # Change this to 0 for a single photo capture
 
         if face_count == 0:
             return None
@@ -72,4 +83,5 @@ class FaceDetectionModule(abstract.AbstractModule):
     def setup(self):
         # Create the haar cascade
         self.faceCascade = cv2.CascadeClassifier(cv2.data.haarcascades + "haarcascade_frontalface_default.xml")
+
 
