@@ -21,10 +21,10 @@ import sys, os
 os.environ['PROTOCOL_BUFFERS_PYTHON_IMPLEMENTATION'] = 'python'
 
 os.environ['RETICO'] = 'retico-core'
-os.environ['VISION'] = 'retico-vision'
+os.environ['RETICOV'] = 'retico-vision'
 
 sys.path.append(os.environ['RETICO'])
-sys.path.append(os.environ['VISION'])
+sys.path.append(os.environ['RETICOV'])
 
 from retico_core import *
 from retico_core.debug import DebugModule
@@ -43,11 +43,12 @@ webcam.run()
 detect.run()
 debug.run()  
 
+print("running now!")
 input()
 
 webcam.stop()  
 detect.stop()   
-debug.stop() 
+debug.stop()  
 ```
 
 ## Citation ##
